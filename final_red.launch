@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="nongroup" default="false"/>
+
+<!-- red side robot -->
+  <group if="$(arg nongroup)">
+      <include file="$(find onigiri_war)/launch/your_onigiri_red_nongroup.launch" />
+  </group>
+
+  <group ns="red_bot" unless="$(arg nongroup)">
+      <include file="$(find onigiri_war)/launch/your_onigiri.launch">
+      </include>
+  </group>
+</launch>
