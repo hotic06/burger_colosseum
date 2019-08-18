@@ -25,14 +25,14 @@ fi
 
 
 # get newest code from repo
-if [ -d  ~/wss/${ACCOUNT_NAME}_ws/src/onigiri_war ]; then
+if [ -d  ~/wss/${ACCOUNT_NAME}_ws/src/burger_war ]; then
     # pull repo if exist already
-    cd ~/wss/${ACCOUNT_NAME}_ws/src/onigiri_war
+    cd ~/wss/${ACCOUNT_NAME}_ws/src/burger_war
     git pull
 else
     # clone repo if not exist
     cd ~/wss/${ACCOUNT_NAME}_ws/src
-    git clone http://github.com/${ACCOUNT_NAME}/onigiri_war.git
+    git clone http://github.com/${ACCOUNT_NAME}/burger_war.git
 fi
 
 
