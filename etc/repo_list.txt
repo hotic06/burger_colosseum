@@ -9,5 +9,4 @@ OKbear https://github.com/OKbear/burger_war OnePanaロボ部選抜
 TeamRabbit https://github.com/TeamRabbit/burger_war OnePanaロボ部Rabbits
 yukiimai https://github.com/yukiimai/burger_war みどりがめ
 NguyenDuyhinh https://github.com/NguyenDuyhinh/burger_war "OnePanaロボット部 team around 30"
-
-
+safubuki https://github.com/safubuki/burger_war チームリラックマ
