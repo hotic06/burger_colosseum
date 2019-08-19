@@ -24,7 +24,9 @@ export GAZEBO_MODEL_PATH=$HOME/wss/OneNightROBOCON_ws/src/burger_war/burger_war/
 bash ~/wss/OneNightROBOCON_ws/src/burger_war/scripts/setup_semifinal.sh $RED_NAME $BLUE_NAME
 )&
 
-sleep 15
+sleep 10
+bash ~/burger_colosseum/scripts/set_window_pos.sh
+sleep 5
 
 
 # launch your_onigiri as red side
