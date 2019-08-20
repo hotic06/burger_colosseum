@@ -44,6 +44,9 @@ date +%H%M%S_%N
 roslaunch ~/burger_colosseum/launch/final_blue.launch
 )&
 
+sleep 5
+bash ~/burger_colosseum/scripts/set_window_pos_2.sh
+
 # set judge server state "running"
 bash ~/wss/OneNightROBOCON_ws/src/burger_war/judge/test_scripts/set_running.sh localhost:5000
 

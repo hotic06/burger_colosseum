@@ -17,7 +17,7 @@ sleep 0.5
 xdotool click 1
 sleep 0.2
 xdotool windowsize ${RVIZWIN1} ${RVIZSIZE} ${RVIZSIZE}
-xdotool windowmove ${RVIZWIN1} `expr ${DESKTOPWIDTH} - ${RVIZSIZE}` 10
+xdotool windowmove ${RVIZWIN1} 10 320
 fi
 
 RVIZWIN2=`xdotool search -onlyvisible ".*blue.*Rviz"`
@@ -25,12 +25,12 @@ RVIZWIN2=`xdotool search -onlyvisible ".*blue.*Rviz"`
 if [ -n $RVIZWIN2 ]; then
 xdotool windowactivate ${RVIZWIN2}
 xdotool windowmove ${RVIZWIN2} 0 10
-xdotool mousemove 377 500
+xdotool mousemove 450 500
 sleep 0.2
 xdotool click 1
 sleep 0.2
 xdotool windowsize ${RVIZWIN2} ${RVIZSIZE} ${RVIZSIZE}
-xdotool windowmove ${RVIZWIN2} 10 320
+xdotool windowmove ${RVIZWIN2} `expr ${DESKTOPWIDTH} - ${RVIZSIZE}` 10
 fi
 
 GAZEBOWIN=`xdotool search -onlyvisible Gazebo`
