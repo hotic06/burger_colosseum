@@ -13,8 +13,8 @@ sudo apt-get install ros-kinetic-dwa-local-planner
 
 
 #@Irie Eiji
-#wget https://bootstrap.pypa.io/get-pip.py
-#sudo python get-pip.py
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
 pip install --user --upgrade tensorflow
 
 pip install  keras --user
@@ -26,4 +26,5 @@ sudo apt install ros-kinetic-jsk-rviz-plugins
 sudo apt install ros-kinetic-smach*
 
 
+sudo apt install ros-kinetic-libg2o
 
