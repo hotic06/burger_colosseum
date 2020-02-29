@@ -5,46 +5,46 @@
 DESKTOPWIDTH=`xdpyinfo  | grep -oP 'dimensions:\s+\K\S+' | cut -f 1 -d "x"`
 DESKTOPHEIGHT=`xdpyinfo  | grep -oP 'dimensions:\s+\K\S+' | cut -f 2 -d "x"`
 
+RVIZSIZE_org="1200 600"
 RVIZSIZE=400
 
-RVIZWIN1=`xdotool search -onlyvisible ".*red.*Rviz"`
+RVIZWIN1=`xdotool search -onlyvisible ".*Rviz" | head -1`
 
 if [ -n $RVIZWIN1 ]; then
 xdotool windowactivate ${RVIZWIN1}
-xdotool windowmove ${RVIZWIN1} 0 10
-xdotool mousemove 450 500
+wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz
+
+xdotool windowsize ${RVIZWIN1} $RVIZSIZE_org
+xdotool windowmove ${RVIZWIN1} 10 10
+
+xdotool mousemove 500 500
+xdotool click 5
 sleep 0.5
+xdotool click 5
+sleep 0.5
+xdotool click 5
+sleep 0.5
+xdotool click 5
+sleep 0.5
+xdotool mousemove 450 500
 xdotool click 1
 sleep 0.2
 xdotool windowsize ${RVIZWIN1} ${RVIZSIZE} ${RVIZSIZE}
 xdotool windowmove ${RVIZWIN1} 10 320
 fi
 
-RVIZWIN2=`xdotool search -onlyvisible ".*blue.*Rviz"`
-
-if [ -n $RVIZWIN2 ]; then
-xdotool windowactivate ${RVIZWIN2}
-xdotool windowmove ${RVIZWIN2} 0 10
-xdotool mousemove 450 500
-sleep 0.2
-xdotool click 1
-sleep 0.2
-xdotool windowsize ${RVIZWIN2} ${RVIZSIZE} ${RVIZSIZE}
-xdotool windowmove ${RVIZWIN2} `expr ${DESKTOPWIDTH} - ${RVIZSIZE}` 10
-fi
 
 GAZEBOWIN=`xdotool search -onlyvisible Gazebo`
 xdotool windowactivate ${GAZEBOWIN}
 
-JUDGE=`xdotool search -onlyvisible Onigiri`
-xdotool windowactivate ${JUDGE}
 
 if [ -n $RVIZWIN1 ]; then
 xdotool windowactivate ${RVIZWIN1}
 fi
-if [ -n $RVIZWIN2 ]; then
-xdotool windowactivate ${RVIZWIN2}
-fi
+
+JUDGE=`xdotool search -onlyvisible Onigiri`
+xdotool windowactivate ${JUDGE}
+
 TERMINALS=`xdotool search -onlyvisible gnome-terminal`
 for WINID in ${TERMINALS} ; do
  xdotool windowminimize ${WINID}
