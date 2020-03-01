@@ -17,10 +17,27 @@ if [ $# -ne 2 ]; then
     exit 1
 fi
 
+source ~/.bashrc
+source /opt/ros/kinetic/setup.bash
+export TURTLEBOT3_MODEL=burger
 
 
 RED_NAME=$1
 BLUE_NAME=$2
+
+case $BLUE_NAME in
+    "cheese")
+        ENEMY="level_1_cheese.py";;
+    "teriyaki")
+        ENEMY="level_2_teriyaki.py";;
+    "clubhouse")
+        ENEMY="level_3_clubhouse.py";;
+    *)
+        ENEMY="level_1_cheese.py"
+esac
+echo $ENEMY
+#echo break && read input
+
 
 # launch Simulation 
 cd $BURGER_DIR/src/burger_war
@@ -29,6 +46,8 @@ source ${ONENIGHT_DIR}/devel/setup.bash
 export GAZEBO_MODEL_PATH=${ONENIGHT_DIR}/src/burger_war/burger_war/models/
 bash ${ONENIGHT_DIR}/src/burger_war/scripts/setup_semifinal.sh $RED_NAME $BLUE_NAME
 )&
+
+#echo break && read input
 
 # set window position and size
 sleep 10
@@ -43,14 +62,16 @@ date +%H%M%S_%N
 roslaunch ${SCRIPT_DIR}/../launch/final_red.launch
 )&
 
+
 # launch enemy as blue side
 (
 source ${ONENIGHT_DIR}/devel/setup.bash
 date +%H%M%S_%N
-roslaunch ${SCRIPT_DIR}/../launch/final_blue.launch
+roslaunch ${SCRIPT_DIR}/../launch/final_blue.launch enemy:=${ENEMY}
 )&
 
 
+${SCRIPT_DIR}/record_desktop.sh ~/${RED_NAME}-${BLUE_NAME}.mp4 &
 
 # set judge server state "running"
 bash ${BURGER_DIR}/src/burger_war/judge/test_scripts/set_running.sh localhost:5000
