@@ -17,3 +17,5 @@ pkill -f match.sh
 pkill -f final_red.launch
 
 pkill -f final_blue.launch
+
+pkill -f ffmpeg
