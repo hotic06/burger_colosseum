@@ -2,6 +2,11 @@
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
+if [ $# -ne 1 ]; then
+	echo Invalid argment number 1 
+	exit 1
+fi
+
 pushd ${SCRIPT_DIR}/../auto_start
 
 sed -e s/hotic06/$1/ 01.sh > tmp
