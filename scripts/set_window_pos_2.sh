@@ -10,7 +10,7 @@ RVIZSIZE=400
 
 RVIZWIN1=`xdotool search -onlyvisible ".*Rviz" | head -1`
 
-if [ -n $RVIZWIN1 ]; then
+if [ ${#RVIZWIN1} -gt 0 ]; then
 xdotool windowactivate ${RVIZWIN1}
 wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz
 
