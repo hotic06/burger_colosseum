@@ -13,7 +13,7 @@ source ~/.bashrc
 
 for file in `find ${AUTO_START}/*.sh -maxdepth 1 -type f | sort`;do
 	echo $file
-	$file
+	source $file
 	mv $file ${file}~
 	echo "Execution finished : " $file
 	echo reboot 5 seconds
