@@ -27,13 +27,13 @@ BLUE_NAME=$2
 
 case $BLUE_NAME in
     "cheese")
-        ENEMY="level_1_cheese.py";;
+        ENEMY="sim_level_1_cheese.launch";;
     "teriyaki")
-        ENEMY="level_2_teriyaki.py";;
+        ENEMY="sim_level_2_teriyaki.launch";;
     "clubhouse")
-        ENEMY="level_3_clubhouse.py";;
+        ENEMY="sim_level_3_clubhouse.launch";;
     *)
-        ENEMY="level_1_cheese.py"
+        ENEMY="sim_level_1_cheese.launch"
 esac
 echo $ENEMY
 #echo break && read input
@@ -43,6 +43,7 @@ echo $ENEMY
 cd $BURGER_DIR/src/burger_war
 (
 source ${ONENIGHT_DIR}/devel/setup.bash
+export TURTLEBOT3_MODEL=burger
 export GAZEBO_MODEL_PATH=${ONENIGHT_DIR}/src/burger_war/burger_war/models/
 bash ${ONENIGHT_DIR}/src/burger_war/scripts/setup_semifinal.sh $RED_NAME $BLUE_NAME
 )&
@@ -58,6 +59,8 @@ sleep 5
 # launch your_burger as red side
 (    
 source ${BURGER_DIR}/devel/setup.bash
+export TURTLEBOT3_MODEL=burger
+export GAZEBO_MODEL_PATH=${BURGER_DIR}//src/burger_war/burger_war/models/
 date +%H%M%S_%N
 roslaunch ${SCRIPT_DIR}/../launch/final_red.launch
 )&
@@ -66,8 +69,10 @@ roslaunch ${SCRIPT_DIR}/../launch/final_red.launch
 # launch enemy as blue side
 (
 source ${ONENIGHT_DIR}/devel/setup.bash
+export TURTLEBOT3_MODEL=burger
+export GAZEBO_MODEL_PATH=${ONENIGHT_DIR}/src/burger_war/burger_war/models/
 date +%H%M%S_%N
-roslaunch ${SCRIPT_DIR}/../launch/final_blue.launch enemy:=${ENEMY}
+roslaunch burger_war ${ENEMY}
 )&
 
 
