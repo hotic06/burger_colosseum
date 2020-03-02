@@ -32,6 +32,7 @@ xdotool click 4
 sleep 0.4
 xdotool click 4
 sleep 0.4
+xdotool click 4
 
 
 xdotool windowsize ${GAZEBOWIN} 85% 100%
