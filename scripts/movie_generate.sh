@@ -18,5 +18,7 @@ file ${TMP_DIR}/02.mp4
 file ${TMP_DIR}/03.mp4
 EOF
 
-ffmpeg -safe 0 -f concat -i ${TMP_DIR}/text.text -c:v copy -c:a copy -c:s copy -map 0:v ~/$1.mp4
+ffmpeg -safe 0 -f concat -i ${TMP_DIR}/text.text -c:v copy -c:a copy -c:s copy -map 0:v ${TMP_DIR}/out.mp4
+
+mv  ${TMP_DIR}/out.mp4 ~/"$1.mp4"
 
