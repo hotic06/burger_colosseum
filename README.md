@@ -16,12 +16,57 @@ burger war 予選会用の自動対戦スクリプト
 そのために、Ubuntuの起動時に、スクリプトが自動起動されるようにした。
 
 
-## 使うスクリプト
-- scripts/autostartup_exec.sh - このスクリプトをUbuntu起動時に自動実行するように設定しておく。gnome-terminalをひとつだけ開いて、autostartup.shを実行する。
-- scripts/autostartup.sh - auto_startディレクトリにあるスクリプトのうち最も若い数字のスクリプトを一つだけ実行する。実行後、実行されたスクリプトの拡張子が「*.sh~」に変更され、インスタンスが細動する。こうすることで、スクリプト実行→再起動→スクリプト実行→再起動・・・が自動的に実行される。
-- auto_start/*.sh - 自動実行されるスクリプトはここにいれる。最も若い数字のスクリプトが実行される
-- scripts/autostartup_enabling.sh - auto_startディレクトリにあるスクリプトの拡張子を「*.sh~」→「*.sh」に変更する
-- scripts/autostartup_remap.sh - auto_startupディレクトリにあるスクリプト内のユーザー名を指定のものに変更する。使い方： `./autostartup_remap.sh user_name`
+
+## 使い方
+### ファイルの配置について
+```
+├── catkin_ws
+│   ├── build
+│   ├── devel
+│   └── src                         ←ここに参加者のプログラムを`git clone`する
+│       └── burger_war
+│           ├── burger_navigation
+│           ├── burger_war
+│           │   ├── launch
+│           │   ├── models
+│           │   ├── scripts
+│           │   ├── src
+│           │   └── world
+│           ├── doc
+│           ├── judge
+│           └── scripts
+└── work
+    ├── OneNightROBOCON_ws
+    │   ├── build
+    │   ├── devel
+    │   └── src
+    │       └── burger_war          ←ここにオフィシャルのレポジトリをclone。敵プログラムとモデル、JUDGEサーバーはここのを使う
+    │           ├── burger_navigation
+    │           ├── burger_war
+    │           │   ├── launch
+    │           │   ├── models
+    │           │   ├── scripts
+    │           │   ├── src
+    │           │   └── world
+    │           ├── doc
+    │           ├── judge
+    │           └── scripts
+    └── burger_colosseum            ←burger_colosseumをclone。
+        ├── auto_start              ←自動実行されるスクリプトがここに入る
+        ├── etc                         使わない
+        ├── launch                  ←参加者プログラムはここのLaunchを経由して起動する
+        ├── robot_scripts               使わない
+        └── scripts                 ←ここのスクリプトを使う
+```
+
+## 各スクリプトの説明
+使うものだけを説明する。
+
+burger_colosseum/script　直下
+- autostartup_exec.sh - **このスクリプトをUbuntu起動時に自動実行するように設定しておく。**gnome-terminalをひとつだけ開いて、autostartup.shを実行する。
+- autostartup.sh - auto_startディレクトリにあるスクリプトのうち最も若い数字のスクリプトを一つだけ実行する。実行後、実行されたスクリプトの拡張子が`*.sh~`に変更され、インスタンスが細動する。こうすることで、スクリプト実行→再起動→スクリプト実行→再起動・・・が自動的に実行される。
+- autostartup_enabling.sh - auto_startディレクトリにあるスクリプトの拡張子を`*.sh~`→`*.sh`に変更する
+- autostartup_remap.sh - auto_startupディレクトリにあるスクリプト内のユーザー名を指定のものに変更する。使い方： `./autostartup_remap.sh user_name`
 - kill-burger.sh - 使用した全てのプロセスをkillする
 - match_202003_yosen.sh - 今回予選用のスクリプト。使い方：`./match_202003_yosen.sh user_name enemy`
 - movie_add_capture.sh - 動画ファイルの上部にスクリプトを追加する。使い方：`./movie_add_capture.sh caption input.mp4 output.mp4`
@@ -31,7 +76,8 @@ burger war 予選会用の自動対戦スクリプト
 - wait_end_game.py - 試合が終わるまで待つスクリプト
 - wait_ffmpeg.sh - 動画のキャプチャ・変換が終わるまで待つスクリプト
 
-## 使い方
+burger_colosseum/auto_start　直下
+- auto_start/*.sh - 自動実行されるスクリプトはここにいれる。最も若い数字のスクリプトが実行される。拡張子が`*.sh~`となっているものは実行されない。
 
 # 以下、２０１９年8月大会のREADME
 ## How TO USE
