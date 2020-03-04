@@ -40,7 +40,7 @@ echo $ENEMY
 
 
 # launch Simulation 
-cd $BURGER_DIR/src/burger_war
+cd ${ONENIGHT_DIR}/src/burger_war
 (
 source ${ONENIGHT_DIR}/devel/setup.bash
 export TURTLEBOT3_MODEL=burger
@@ -60,7 +60,7 @@ sleep 5
 (    
 source ${BURGER_DIR}/devel/setup.bash
 export TURTLEBOT3_MODEL=burger
-export GAZEBO_MODEL_PATH=${BURGER_DIR}//src/burger_war/burger_war/models/
+export GAZEBO_MODEL_PATH=${BURGER_DIR}/src/burger_war/burger_war/models/
 date +%H%M%S_%N
 roslaunch ${SCRIPT_DIR}/../launch/final_red.launch
 )&
@@ -79,7 +79,7 @@ roslaunch burger_war ${ENEMY}
 ${SCRIPT_DIR}/record_desktop.sh ~/${RED_NAME}-${BLUE_NAME}.mp4 &
 
 # set judge server state "running"
-bash ${BURGER_DIR}/src/burger_war/judge/test_scripts/set_running.sh localhost:5000
+bash ${ONENIGHT_DIR}/src/burger_war/judge/test_scripts/set_running.sh localhost:5000
 
 
 # set window position
