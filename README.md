@@ -185,6 +185,16 @@ bash scripts/start.sh
 - your_burger.launchを使っていない。
 - そもそも動かない。
 
+### Ubuntuで自動起動の設定をする
+`自動起動するアプリケーションの設定`を開く。
+```
+gnome-session-properties
+```
+
+追加をクリックし、下記を入力して、保存をクリックする。
+- `名前` : auto_start
+- `コマンド` : /home/ubuntu/work/burger_colosseum/scripts/autostartup_exec.sh
+
 ### auto_startを設定し再起動
 
 下記を実行する。`~/work/auto_start/`内のシェルスクリプトの拡張子を変更する。`*.sh~`→`*.sh`
