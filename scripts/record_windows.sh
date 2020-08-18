@@ -7,7 +7,7 @@ DESKTOPHEIGHT=`xdpyinfo  | grep -oP 'dimensions:\s+\K\S+' | cut -f 2 -d "x"`
 TMP_DIR=/mnt/tmp
 sudo mkdir -p ${TMP_DIR}
 sudo chmod 777 ${TMP_DIR}
-rm ${TMPDIR}/*.ogv
+
 
 WLIST=`wmctrl -l`
 
@@ -33,3 +33,5 @@ XID_TERMINAL=`echo "$WLIST" | grep 'final_red.launch' | awk '{print $1}'`
 (gst-launch-1.0 ximagesrc ! queue ! video/x-raw,framerate=10/1 ! jpegenc ! avimux ! filesink location="${TMP_DIR}/00.avi")&
 
 #ffmpeg -f x11grab -y -r 10 -s ${DESKTOPWIDTH}x${DESKTOPHEIGHT} -i :0.0 -vcodec ffvhuff ${TMP_DIR}/out.avi
+
+

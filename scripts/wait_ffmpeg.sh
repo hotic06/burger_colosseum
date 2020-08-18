@@ -1,11 +1,12 @@
 #!/bin/bash
 
-FFMPEG_PS=`ps ax | grep ffmpeg | grep -v grep | grep -v wait_ffmpeg.sh | wc -l`
-echo $FFMPEG_PS
-while [ $FFMPEG_PS -ge "1" ]
+CNT=0
+while [ $CNT -le 2 ]
 do
-    echo waiting
     sleep 1
     FFMPEG_PS=`ps ax | grep ffmpeg | grep -v grep | grep -v wait_ffmpeg.sh | wc -l`
-    echo $FFMPEG_PS
+    echo waiting $FFMPEG_PS : $CNT
+    if [ $FFMPEG_PS -eq 0 ] ; then
+        let CNT++
+    fi
 done
