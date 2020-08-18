@@ -12,10 +12,12 @@ pkill -f sim_with_judge.sh
 
 pkill -f start.sh
 
-pkill -f match.sh
+pkill -f match_202008_yosen.sh
 
 pkill -f final_red.launch
 
 pkill -f final_blue.launch
 
 pkill -f ffmpeg
+
+pkill -f gst-launch-1.0
