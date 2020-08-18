@@ -1,8 +1,7 @@
 #!/bin/bash
 
-
 ENEMY=teriyaki
-source init_settings
 
-source common_script
+source ${AUTO_START}/init_settings
 
+source ${AUTO_START}/common_script
