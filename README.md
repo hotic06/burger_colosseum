@@ -11,6 +11,17 @@ burger war 予選会用の自動対戦スクリプト
 - `movie_panelize.sh` - 動画を連結させる
 - `lastframe.sh` - 動画の最後をJPGにする。点数チェックのため。
 
+最後に下記を実行して動画を結合している。
+```
+cd ~/
+echo file *cheese.mp4 >> files.txt
+echo file *teriyaki.mp4 >> files.txt
+echo file *clubhouse.mp4 >> files.txt
+source ~/work/burger_colosseum/auto_start/init_settings 
+ffmpeg -f concat -i files.txt -c copy ${CHALLENGER}-all.mp4
+cp ~/work/OneNightROBOCON_ws/src/burger_war/judge/log/game_result.log ~/${CHALLENGER}-game_result.log
+```
+
 # 2020年3月大会予選
 
 ## 前提
