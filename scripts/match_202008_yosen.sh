@@ -50,6 +50,11 @@ bash ${ONENIGHT_DIR}/src/burger_war/scripts/setup_semifinal.sh $RED_NAME $BLUE_N
 
 #echo break && read input
 
+
+sleep 10
+rqt_image_view /aruco_marker_publisher/result/compressed &
+
+
 # set window position and size
 sleep 10
 bash ${SCRIPT_DIR}/set_window_pos.sh
