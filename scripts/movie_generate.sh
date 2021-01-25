@@ -1,5 +1,9 @@
 #!/bin/bash
 
+movie_length(){
+   ffprobe -show_streams $1 2> /dev/null | grep duration= | cut -d = -f2
+}
+
 SD=$(cd $(dirname $0); pwd)
 
 TMP_DIR=/mnt/tmp
@@ -21,4 +25,8 @@ EOF
 ffmpeg -safe 0 -f concat -i ${TMP_DIR}/text.text -c:v copy -c:a copy -c:s copy -map 0:v ${TMP_DIR}/out.mp4
 
 mv  ${TMP_DIR}/out.mp4 ~/"$1.mp4"
+
+echo 01 `movie_length ${TMP_DIR}/01.mp4` >> ~/movie_length.txt
+echo 02 `movie_length ${TMP_DIR}/02.mp4` >> ~/movie_length.txt
+echo 03 `movie_length ${TMP_DIR}/03.mp4` >> ~/movie_length.txt
 
