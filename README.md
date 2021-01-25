@@ -1,6 +1,27 @@
 # burger_colosseum
 burger war 予選会用の自動対戦スクリプト
 
+# 2020年8月大会予選
+## 前提
+あまり大きくは変えていない。awsのec2で動かしている。
+
+`burger_colosseum/script`　直下
+- `match_202008_yosen.sh` - 敵プログラムの動かし方が変わったのに合わせた。録画をrecord_windows.shを使うようになった
+- `record_windows.sh` - GStreamerを使って特定Windowのみを録画できるようにした。
+- `movie_panelize.sh` - 動画を連結させる
+- `lastframe.sh` - 動画の最後をJPGにする。点数チェックのため。
+
+最後に下記を実行して動画を結合している。
+```
+cd ~/
+echo file *cheese.mp4 >> files.txt
+echo file *teriyaki.mp4 >> files.txt
+echo file *clubhouse.mp4 >> files.txt
+source ~/work/burger_colosseum/auto_start/init_settings 
+ffmpeg -f concat -i files.txt -c copy ${CHALLENGER}-all.mp4
+cp ~/work/OneNightROBOCON_ws/src/burger_war/judge/log/game_result.log ~/${CHALLENGER}-game_result.log
+```
+
 # 2020年3月大会予選
 
 ## 前提

@@ -8,4 +8,5 @@ while True:
     resp = requests.get("http://localhost:5000/warState")
     print(resp.text)
     if "stop" in resp.text:
+    	time.sleep(5)
         break

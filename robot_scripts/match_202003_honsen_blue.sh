@@ -10,5 +10,5 @@ ${SCRIPT_DIR}/display_name.sh `${SCRIPT_DIR}/get_git_info.sh $BURGER_DIR/src/bur
 
 bash ${BURGER_DIR}/src/burger_war/judge/test_scripts/set_running.sh ${JUDGE_IP}:5000
 
-roslaunch ${SCRIPT_DIR}/../launch/final_red.launch
+roslaunch ${SCRIPT_DIR}/../launch/final_blue.launch
 
