@@ -14,10 +14,10 @@ wmctrl -r Gazebo -b remove,maximized_vert,maximized_horz
 xdotool windowsize ${GAZEBOWIN} 1000 700
 xdotool windowmove ${GAZEBOWIN} 10 10
 sleep 0.2
-xdotool mousemove 1000 90
+xdotool mousemove 995 90
 xdotool click 1
 sleep 0.2
-xdotool mousemove_relative 50 30 
+xdotool mousemove_relative 50 40 
 xdotool click 1
 sleep 1.5
 xdotool click 1
@@ -37,10 +37,9 @@ sleep 0.2
 xdotool mousemove 575 400
 xdotool mousedown 2
 sleep 0.5
-xdotool mousemove_relative 0 100
+xdotool mousemove_relative 0 50
 sleep 0.5
-xdotool mousemove_relative -- -393 0
-xdotool mousemove_relative -- -168 0
+xdotool mousemove_relative -- 225 0
 sleep 0.5
 xdotool mouseup 2
 

@@ -56,7 +56,7 @@ rqt_image_view /aruco_marker_publisher/result/compressed &
 
 
 # set window position and size
-sleep 10
+sleep 5
 bash ${SCRIPT_DIR}/set_window_pos.sh
 sleep 5
 
